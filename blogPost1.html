@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Andrew Deacy's Blog test test 123</title>
+
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="blog.css" rel="stylesheet">
+    <script src="./bootstrap/js/ie-emulation-modes-warning.js"></script>
+
+  </head>
+
+  <body>
+<img id="header" src ="./header.png" alt ="andrewdeacy.net" title="Andrew Deacy.net" />
+</br>
+    <!-- Grey Menu -->
+		<div id="menu_wrapper" class="grey">
+			<div class="left"></div>
+			<ul id="menu">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="resume.html">Resume</a></li>
+				<li><a href="portfolio.html">Work Portfolio</a></li>
+				<li><a href="contact.html">Contact</a></li>
+				<li class ="active"><a href="blog.html">Blog</a></li>
+			</ul>
+		</div>
+
+    <div class="container">
+
+      <div class="blog-header">
+        <h1 class="blog-title">Development Blog</h1>
+        <p class="lead blog-description">Created by a developer, for developers</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+            <h2 class="blog-post-title">SSRS: Selecting Last Week</h2>
+            <p class="blog-post-meta">November 24, 2014 by <a href="http://www.andrewdeacy.net">Andrew</a></p>
+
+            <p>Selecting the previous week from Sunday to Saturday can be deceivingly difficult in SSRS's hybrid VB/SQL syntax, I'll outline how it's done in this post. </p>
+            
+            <p>There are a number of reasons a business would need the previous week from Sunday to Saturday selected for a report in SSRS, I'll use the date at the time I'm writing this (11/24/14) to explain what I mean by "the previous week from Sunday to Saturday" in the image below:</p>
+            </br>
+			<img src='./cal.png' title="Sunday to Saturday SSRS" alt='SSRS Sunday to Saturday Parameter' width=500px class="img-rounded" style="padding-left:25px"/>
+			<hr>
+            <h2>The Code</h2>
+            <p>First of all we will need to create two report parameters: DateFrom and DateTo, both of which should have a data type of Date/Time. We need to adjust the formula for each of the parameters default values. The formula for calculating DateFrom can be a little intimidating at first, but upon further inspection it's actually pretty simple. </p>
+            
+			<h3>DateFrom:</h3>
+            <pre><code>=dateadd(dateinterval.Day, 1, dateadd(dateinterval.Day,- cdbl(datepart("w", dateadd(dateinterval.Day, -7, datetime.Today))), dateadd(dateinterval.Day, - 7, datetime.Today)))</code></pre>
+            <p>As you can see the formula is mostly just nested DateAdd functions used in conjunction with negative and positive date intervals as well as the DateTime.Today function to make the code fetch last weeks start date relative to the current date. </p>
+            
+			<h3>DateTo:</h3>
+            <pre><code>=dateadd(dateinterval.Second, -1, dateadd(dateinterval.day, 7, Parameters!DateFrom.Value ))</code></pre>
+            <p>The DateTo parameter is taking the value calculated from the DateFrom parameter and adding 7 days and then subtracting a second.</p>
+            
+			<hr>
+			<h2>The Results </h2>
+			<p>For the date 11/24/14 the parameters DateFrom and DateTo will return the following date range: </p>
+			<pre><code>11/16/2014 12:00:00 AM - 11/22/2014 11:59:59 PM</code></pre>
+			
+          </div><!-- /.blog-post -->
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>About</h4>
+            <p>This blog is intended to serve as a reference for other developers that come across similar problems I have already solved in my young software development career.</p>
+          </div>
+          <div class="sidebar-module">
+            <h4>Archives</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">Blog Post 1</a></li>
+              <li><a href="#">Blog Post 2</a></li>
+              <li><a href="#">Blog Post 3</a></li>
+              <li><a href="#">Blog Post 4</a></li>
+              <li><a href="#">Blog Post 5</a></li>
+              <li><a href="#">Blog Post 6</a></li>
+            </ol>
+          </div>
+          <div class="sidebar-module">
+            <h4>Elsewhere</h4>
+            <ol class="list-unstyled">
+              <li><a href="https://github.com/andrewdeacy">GitHub</a></li>
+              <li><a href="https://twitter.com/AndrewPDeacy">Twitter</a></li>
+              <li><a href="www.linkedin.com/in/andrewdeacy/">LinkedIn</a></li>
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>Created by: Andrew Deacy</p>
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="..//bootstrap/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
