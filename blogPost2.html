@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Andrew Deacy's Blog test test 123</title>
+
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="blog.css" rel="stylesheet">
+    <script src="./bootstrap/js/ie-emulation-modes-warning.js"></script>
+
+  </head>
+
+  <body>
+<img id="header" src ="./header.png" alt ="andrewdeacy.net" title="Andrew Deacy.net" />
+</br>
+    <!-- Grey Menu -->
+		<div id="menu_wrapper" class="grey">
+			<div class="left"></div>
+			<ul id="menu">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="resume.html">Resume</a></li>
+				<li><a href="portfolio.html">Work Portfolio</a></li>
+				<li><a href="contact.html">Contact</a></li>
+				<li class ="active"><a href="blog.html">Blog</a></li>
+			</ul>
+		</div>
+
+    <div class="container">
+
+      <div class="blog-header">
+        <h1 class="blog-title">Development Blog</h1>
+        <p class="lead blog-description">Created by a developer, for developers</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+            <h2 class="blog-post-title">Clearing Textboxes on Checkbox Check</h2>
+            <p class="blog-post-meta">December 11, 2014 by <a href="http://www.andrewdeacy.net">Andrew</a></p>
+
+            <p>Clearing textboxes that use JQuery datepickers without posting back in ASP.net requires the use of some simple JavaScript client side scripting. </p>
+            
+            <p>There are a number of reasons why you wouldn't want the page to post back, in this case the text boxes were inside a JQuery modal so a post back would close the window after processing.</p>
+			<hr>
+            <h2>The Code</h2>
+            <p>The first step is creating a JavaScript function and declaring your variables. Make variables for each of the text boxes you want to clear and the check box that will the trigger the function.</p>
+            
+			<h3>Declaring function/variables:</h3>
+            
+<pre><code>function ClearDatesOnCheck() {
+    jQuery.noConflict();
+    var DateTo = document.getElementById("<%=txtDueDateTo.ClientID%>"), 
+        DateFrom = document.getElementById("<%=txtDueDateFrom.ClientID%>"),
+        cbNullDate = document.getElementById("<%=chkNullDates.ClientID%>");</code></pre>
+			
+            <p>Now that we can access the control's values through JavaScript we can manipulate their properties on the client side without communicating to the server.</p>
+            
+			<h3>The logic:</h3>
+			<p>This function uses a simple if statement: If the check box is checked then we're going to disable the datepickers and clear their value. If the check box is not checked then we're simply going to enable the datepickers. </p>
+            
+<pre><code>if (cbNullDate.checked) {
+	$(DateFrom).datepicker('disable'); //Disabling and clearing textbox values
+	$(DateTo).datepicker('disable');
+	DateTo.value = '';
+	DateFrom.value = '';
+} else {
+	$(DateTo).datepicker('enable'); //Enabling textboxes
+	$(DateFrom).datepicker('enable');
+}
+$('#divDueDates').modal({ persist: true }); //Keeping modal window open
+			</code></pre>
+			<p>I'm also keeping the modal window open after the if statement is evaluated. </p>
+			
+			<h3>Calling the function:</h3>
+			<p>The function now needs to be called upon the checkbox click, so we have to add an event to the OnClick method of the control. </p>
+            <pre><code>
+			<p><asp:CheckBox ID="chkNullDates" runat="server" OnClick="return ClearDatesOnCheck();"></p>
+			</code></pre>
+            
+			<hr>
+			<h2>The Results </h2>
+			<p>Putting the entire function together should look something like this: </p>
+			
+<pre><code>function ClearDatesOnCheck() {
+    jQuery.noConflict();
+    var DateTo = document.getElementById("<%=txtDueDateTo.ClientID%>"),
+        DateFrom = document.getElementById("<%=txtDueDateFrom.ClientID%>"),
+        cbNullDate = document.getElementById("<%=chkNullDates.ClientID%>"); 
+
+    if (cbNullDate.checked) {
+        $(DateFrom).datepicker('disable'); //Disabling and clearing textbox
+        $(DateTo).datepicker('disable');
+        DateTo.value = '';
+        DateFrom.value = '';
+    } else {
+        $(DateTo).datepicker('enable'); //Enabling textboxes on unchecking
+        $(DateFrom).datepicker('enable');
+    }
+        $('#divDueDates').modal({ persist: true }); //Keeping modal window open
+}</code></pre>
+			
+			<p> The added jQuery.noConflict() call is to prevent any conflicting jQuery versions from causing the function to fail. And that should work to clear datepickers via JavaScript with out posting back in a ASP.net website on a checkbox click event.</p>
+			
+          </div><!-- /.blog-post -->
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>About</h4>
+            <p>This blog is intended to serve as a reference for other developers that come across similar problems I have already solved in my young software development career.</p>
+          </div>
+          <div class="sidebar-module">
+            <h4>Archives</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">Blog Post 1</a></li>
+              <li><a href="#">Blog Post 2</a></li>
+              <li><a href="#">Blog Post 3</a></li>
+              <li><a href="#">Blog Post 4</a></li>
+              <li><a href="#">Blog Post 5</a></li>
+              <li><a href="#">Blog Post 6</a></li>
+            </ol>
+          </div>
+          <div class="sidebar-module">
+            <h4>Elsewhere</h4>
+            <ol class="list-unstyled">
+              <li><a href="https://github.com/andrewdeacy">GitHub</a></li>
+              <li><a href="https://twitter.com/AndrewPDeacy">Twitter</a></li>
+              <li><a href="www.linkedin.com/in/andrewdeacy/">LinkedIn</a></li>
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>Created by: Andrew Deacy</p>
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="..//bootstrap/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

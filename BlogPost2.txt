@@ -1,0 +1,24 @@
+        
+Javascript:
+		
+		function ddlUpdate() {
+            var updateId = document.getElementById("<%=ddlMoveUpdate.ClientID%>"), // DDL value
+                hfValue = document.getElementById("<%=HiddenField1.ClientID%>"); // HF value
+
+            hfValue.value = updateId.value;
+        }
+		
+ASP.Net:
+
+<asp:Button ID="btnUpdate" runat="server" CausesValidation="False" OnClientClick="ddlUpdate();" Text="Update" />
+
+
+Code behind: 
+
+ Protected Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+
+            ddlMoveUpdate.SelectedValue = HiddenField1.Value 'Setting value equal to hidden field set in JS function 
+		
+		
+Overview:
+
