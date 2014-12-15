@@ -53,36 +53,32 @@
 			<img src='./cal.png' title="Sunday to Saturday SSRS" alt='SSRS Sunday to Saturday Parameter' width=500px class="img-rounded" style="padding-left:25px"/>
 			</br>
 			<hr>
-			<a href="./blogpost1.html"><p>Click here to continue...</p></a>
+			<a href="./blogPost1.html"><p>Click here to continue...</p></a>
 			
             
           </div><!-- /.blog-post -->
 
           <div class="blog-post">
-            <h2 class="blog-post-title">Another blog post</h2>
-            <p class="blog-post-meta">November 24, 2014 by <a href="#">Andrew</a></p>
+            <h2 class="blog-post-title">Clearing Textboxes with JS</h2>
+            <p class="blog-post-meta">December 11, 2014 by <a href="http://www.andrewdeacy.net">Andrew</a></p>
 
-            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-            <blockquote>
-              <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            </blockquote>
-            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-            <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+           <p>Clearing textboxes that use JQuery datepickers without posting back in ASP.net requires the use of some simple JavaScript client side scripting. </p>
+            
+            <p>There are a number of reasons why you wouldn't want the page to post back, in this case the text boxes were inside a JQuery modal so a post back would close the window after processing.</p>
+			<h2>The Code</h2>
+            <p>The first step is creating a JavaScript function and declaring your variables. Make variables for each of the text boxes you want to clear and the check box that will the trigger the function.</p>
+            
+			<h3>Declaring function/variables:</h3>
+			<pre><code>function ClearDatesOnCheck() {
+    jQuery.noConflict();
+    var DateTo = document.getElementById("<%=txtDueDateTo.ClientID%>"), 
+        DateFrom = document.getElementById("<%=txtDueDateFrom.ClientID%>"),
+        cbNullDate = document.getElementById("<%=chkNullDates.ClientID%>");</code></pre>
+			<hr>
+			<a href="./BlogPost2.html"><p>Click here to continue...</p></a>
           </div><!-- /.blog-post -->
 
-          <div class="blog-post">
-            <h2 class="blog-post-title">New feature</h2>
-            <p class="blog-post-meta">December 14, 2013 by <a href="#">Chris</a></p>
-
-            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <ul>
-              <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-              <li>Donec id elit non mi porta gravida at eget metus.</li>
-              <li>Nulla vitae elit libero, a pharetra augue.</li>
-            </ul>
-            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-            <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
-          </div><!-- /.blog-post -->
+          <!-- /.blog-post -->
 
           <nav>
             <!-- <ul class="pager">
@@ -101,9 +97,9 @@
           <div class="sidebar-module">
             <h4>Archives</h4>
             <ol class="list-unstyled">
-              <li><a href="#">SSRS Selecting Last Week</a></li>
-              <!-- <li><a href="#">Blog Post 2</a></li>
-              <li><a href="#">Blog Post 3</a></li>
+              <li><a href="./blogPost1.html">SSRS Selecting Last Week</a></li>
+              <li><a href="./BlogPost2.html">Clearing Textboxes with JS</a></li>
+<!--               <li><a href="#">Blog Post 3</a></li>
               <li><a href="#">Blog Post 4</a></li>
               <li><a href="#">Blog Post 5</a></li>
               <li><a href="#">Blog Post 6</a></li> -->
