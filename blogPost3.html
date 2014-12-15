@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Andrew Deacy's Development Blog</title>
+
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="blog.css" rel="stylesheet">
+    <script src="./bootstrap/js/ie-emulation-modes-warning.js"></script>
+
+  </head>
+
+  <body>
+<img id="header" src ="./header.png" alt ="andrewdeacy.net" title="Andrew Deacy.net" />
+</br>
+    <!-- Grey Menu -->
+		<div id="menu_wrapper" class="grey">
+			<div class="left"></div>
+			<ul id="menu">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="resume.html">Resume</a></li>
+				<li><a href="portfolio.html">Work Portfolio</a></li>
+				<li><a href="contact.html">Contact</a></li>
+				<li class ="active"><a href="blog.html">Blog</a></li>
+			</ul>
+		</div>
+
+    <div class="container">
+
+      <div class="blog-header">
+        <h1 class="blog-title">Development Blog</h1>
+        <p class="lead blog-description">Created by a developer, for developers</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+            <h2 class="blog-post-title">Multiple DevExpress Unbound Columns</h2>
+            <p class="blog-post-meta">December 15, 2014 by <a href="http://www.andrewdeacy.net">Andrew</a></p>
+
+            <p>DevExpress has two types of columns, bound and unbound. Bound columns are directly from the data source, while unbound columns can be calculated based off of other columns by handling the ColumnView.CustomUnboundColumnData event in which you can implement custom logic of any complexity. </p>
+            <p>This event iterates through each row of data for a data source bound to a given grid. Working with multiple unbound columns in each row of data can be difficult at first so I'll walk through it in this post. </p>
+			<hr>
+            <h2>The Code</h2>
+			<h3>Creating the Event:</h3>
+            <p>Creating the event for the unbound column is the first step. The ColumnView.CustomUnboundColumnData event returns e for each row of data. E will serve as the basis for most of our logic. </p>
+<pre><code>
+<img src="./unboundColumns.png" title="Creating the Event" alt="Creating DevExpress unbound column event in vb.net" width=800px>
+</code></pre>
+			
+            <p> After creating the event an .IsGetData check will determine if there is any data in the returned row.</p>
+            </br>
+			
+			<h3>The logic:</h3>
+			<p>Declare your variable by following the example below. Use the method e.GetListSourceFieldValue("columnName") which will return the value of the column. We can now base our conditional logic around this variable.  </p>
+            
+<pre><code>'Grabbing isFinished column from each row
+Dim isFinished As Boolean = e.GetListSourceFieldValue("isFinished")</code></pre>
+			<p></p>
+			
+			<h3>Calling the function:</h3>
+			<p></p>
+            <pre><code>
+			<img src="./OnClientClick.png" title="Calling the JS function" alt="Calling function in ASP.net" width=500px>
+			</code></pre>
+            
+			<hr>
+			<h2>The Results </h2>
+			<p></p>
+			
+<pre><code></code></pre>
+			
+			<p> </p>
+			
+          </div><!-- /.blog-post -->
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>About</h4>
+            <p>This blog is intended to serve as a reference for other developers that come across similar problems I have already encountered.</p>
+          </div>
+          <div class="sidebar-module">
+            <h4>Archives</h4>
+            <ol class="list-unstyled">
+              <li><a href="./BlogPost1.html">SSRS Selecting Last Week</a></li>
+              <li><a href="./BlogPost2.html">Clearing Textboxes with JS</a></li>
+              <!-- <li><a href="#">Blog Post 3</a></li>
+              <li><a href="#">Blog Post 4</a></li>
+              <li><a href="#">Blog Post 5</a></li>
+              <li><a href="#">Blog Post 6</a></li> -->
+            </ol>
+          </div>
+          <div class="sidebar-module">
+            <h4>Elsewhere</h4>
+            <ol class="list-unstyled">
+              <li><a href="https://github.com/andrewdeacy">GitHub</a></li>
+              <li><a href="https://twitter.com/AndrewPDeacy">Twitter</a></li>
+              <li><a href="www.linkedin.com/in/andrewdeacy/">LinkedIn</a></li>
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>Created by: Andrew Deacy</p>
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="..//bootstrap/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
