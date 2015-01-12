@@ -34,7 +34,7 @@
     <div class="container">
 
       <div class="blog-header">
-        <h1 class="blog-title">Development Blog</h1>
+        <a href="blog.html"><h1 class="blog-title">Development Blog</h1></a>
         <p class="lead blog-description">Created by a developer, for developers.</p>
       </div>
 
@@ -43,79 +43,20 @@
         <div class="col-sm-8 blog-main">
 
           <div class="blog-post">
-            <h2 class="blog-post-title">Book Review: </h2>
-            <p class="blog-post-meta">January 7, 2015 by <a href="http://www.andrewdeacy.net">Andrew</a></p>
+            <h2 class="blog-post-title">Book Review: JavaScript and JQuery: Interactive Front-End Web Development</h2>
+            <p class="blog-post-meta">January 11, 2014 by <a href="http://www.andrewdeacy.net">Andrew</a></p>
 
-            <p>Clearing textboxes that use JQuery datepickers without posting back in ASP.net requires the use of some simple JavaScript client side scripting. </p>
-            
-            <p>There are a number of reasons why you wouldn't want the page to post back, in this case the text boxes were inside a JQuery modal so a post back would close the window after processing.</p>
-			<hr>
-            <h2>The Code</h2>
-            <p>The first step is creating a JavaScript function and declaring your variables. Make variables for each of the text boxes you want to clear and the check box that will the trigger the function.</p>
-            
-			<h3>Declaring function/variables:</h3>
-            
-<pre><code>function ClearDatesOnCheck() {
-    jQuery.noConflict();
-    var DateTo = document.getElementById("<%=txtDueDateTo.ClientID%>"), 
-        DateFrom = document.getElementById("<%=txtDueDateFrom.ClientID%>"),
-        cbNullDate = document.getElementById("<%=chkNullDates.ClientID%>");</code></pre>
-			
-            <p>Now that we can access the control's values through JavaScript we can manipulate their properties on the client side without communicating to the server.</p>
-            
-			<h3>The logic:</h3>
-			<p>This function uses a simple if statement: If the check box is checked then we're going to disable the datepickers and clear their value. If the check box is not checked then we're simply going to enable the datepickers. </p>
-            
-<pre><code>if (cbNullDate.checked) {
-	$(DateFrom).datepicker('disable'); //Disabling and clearing textbox values
-	$(DateTo).datepicker('disable');
-	DateTo.value = '';
-	DateFrom.value = '';
-} else {
-	$(DateTo).datepicker('enable'); //Enabling textboxes
-	$(DateFrom).datepicker('enable');
-}
-$('#divDueDates').modal({ persist: true }); //Keeping modal window open
-			</code></pre>
-			<p>I'm also keeping the modal window open after the if statement is evaluated. </p>
-			
-			<h3>Calling the function:</h3>
-			<p>The function now needs to be called upon the checkbox click, so we have to add an event to the OnClick method of the control. </p>
-            <pre><code>
-			<img src="./OnClientClick.png" title="Calling the JS function" alt="Calling function in ASP.net" width=500px>
-			</code></pre>
-            
-			<hr>
-			<h2>The Results </h2>
-			<p>Putting the entire function together should look something like this: </p>
-			
-<pre><code>function ClearDatesOnCheck() {
-    jQuery.noConflict();
-    var DateTo = document.getElementById("<%=txtDueDateTo.ClientID%>"),
-        DateFrom = document.getElementById("<%=txtDueDateFrom.ClientID%>"),
-        cbNullDate = document.getElementById("<%=chkNullDates.ClientID%>"); 
-
-    if (cbNullDate.checked) {
-        $(DateFrom).datepicker('disable'); //Disabling and clearing textbox
-        $(DateTo).datepicker('disable');
-        DateTo.value = '';
-        DateFrom.value = '';
-    } else {
-        $(DateTo).datepicker('enable'); //Enabling textboxes on unchecking
-        $(DateFrom).datepicker('enable');
-    }
-        $('#divDueDates').modal({ persist: true }); //Keeping modal window open
-}</code></pre>
-			
-			<p> The added jQuery.noConflict() call is to prevent any conflicting jQuery versions from causing the function to fail. And that should work to clear datepickers via JavaScript with out posting back in a ASP.net website on a checkbox click event.</p>
-			
+          <p>  John Ducket's book, JavaScript and JQuery: Interactive Front-End Web Development, is a great reference tool for any developer. The design of every page is so beautiful, if you are a visual learner I cannot recommend this book enough. Almost every difficult concept is illustrated with helpful notes everywhere. It is so well written and the fonts just pop off the page, it almost reads like a magazine.   </p>
+		<p> The examples used in the book are well thought out and really helped me sharpen my JavaScript skills. The book covers almost all core elements of the language and slowly adds more layers to the lessons. I feel this book is one of the best ways to learn the language outside of a classroom.  <p>
+		<p> This book is a great reference for any programmer. It gives you everything you need to get started on some real projects. </p>
+		<img id="header" src ="book.jpg" alt ="andrewdeacy.net" title="Andrew Deacy.net" />
           </div><!-- /.blog-post -->
         </div><!-- /.blog-main -->
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
           <div class="sidebar-module sidebar-module-inset">
             <h4>About</h4>
-            <p>I'm Andrew and this is my development blog. I talk about all things development from code tutorials, book reviews, and emerging technologies. I love making new professional acquaintances, feel free to reach out to me if you want to talk technology, coding, or baseball.  </p>
+            <p>I'm Andrew and this is my development blog. I talk about all things development from code tutorials, book reviews, and emerging technologies. I love making new professional acquaintances, feel free to reach out to me if you want to talk technology, programming, or baseball.  </p>
           </div>
           <div class="sidebar-module">
             <h4>Archives</h4>

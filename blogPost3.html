@@ -9,10 +9,10 @@
     <link rel="icon" href="../../favicon.ico">
 
     <title>Andrew Deacy's Development Blog</title>
-
-    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="drew.css" />
+    <link href="./bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="blog.css" rel="stylesheet">
-    <script src="./bootstrap/js/ie-emulation-modes-warning.js"></script>
+    <script src="./bootstrap/js/ie-emulation-modes-warning.js"></script> 
 
   </head>
 
@@ -34,8 +34,8 @@
     <div class="container">
 
       <div class="blog-header">
-        <h1 class="blog-title">Development Blog</h1>
-        <p class="lead blog-description">Created by a developer, for developers</p>
+        <a href="blog.html"><h1 class="blog-title">Development Blog</h1></a>
+        <p class="lead blog-description">Created by a developer, for developers.</p>
       </div>
 
       <div class="row">
@@ -43,59 +43,28 @@
         <div class="col-sm-8 blog-main">
 
           <div class="blog-post">
-            <h2 class="blog-post-title">Multiple DevExpress Unbound Columns</h2>
-            <p class="blog-post-meta">December 15, 2014 by <a href="http://www.andrewdeacy.net">Andrew</a></p>
+            <h2 class="blog-post-title">Book Review: JavaScript and JQuery: Interactive Front-End Web Development</h2>
+            <p class="blog-post-meta">January 11, 2014 by <a href="http://www.andrewdeacy.net">Andrew</a></p>
 
-            <p>DevExpress has two types of columns, bound and unbound. Bound columns are directly from the data source, while unbound columns can be calculated based off of other columns by handling the ColumnView.CustomUnboundColumnData event in which you can implement custom logic of any complexity. </p>
-            <p>This event iterates through each row of data for a data source bound to a given grid. Working with multiple unbound columns in each row of data can be difficult at first so I'll walk through it in this post. </p>
-			<hr>
-            <h2>The Code</h2>
-			<h3>Creating the Event:</h3>
-            <p>Creating the event for the unbound column is the first step. The ColumnView.CustomUnboundColumnData event returns e for each row of data. E will serve as the basis for most of our logic. </p>
-<pre><code>
-<img src="./unboundColumns.png" title="Creating the Event" alt="Creating DevExpress unbound column event in vb.net" width=800px>
-</code></pre>
-			
-            <p> After creating the event an .IsGetData check will determine if there is any data in the returned row.</p>
-            </br>
-			
-			<h3>The logic:</h3>
-			<p>Declare your variable by following the example below. Use the method e.GetListSourceFieldValue("columnName") which will return the value of the column. We can now base our conditional logic around this variable.  </p>
-            
-<pre><code>'Grabbing isFinished column from each row
-Dim isFinished As Boolean = e.GetListSourceFieldValue("isFinished")</code></pre>
-			<p></p>
-			
-			<h3>Calling the function:</h3>
-			<p></p>
-            <pre><code>
-			<img src="./OnClientClick.png" title="Calling the JS function" alt="Calling function in ASP.net" width=500px>
-			</code></pre>
-            
-			<hr>
-			<h2>The Results </h2>
-			<p></p>
-			
-<pre><code></code></pre>
-			
-			<p> </p>
-			
+          <p>  John Ducket's book, JavaScript and JQuery: Interactive Front-End Web Development, is a great reference tool for any developer. The design of every page is so beautiful, if you are a visual learner I cannot recommend this book enough. Almost every difficult concept is illustrated with helpful notes everywhere. It is so well written and the fonts just pop off the page, it almost reads like a magazine.   </p>
+		<p> The examples used in the book are well thought out and really helped me sharpen my JavaScript skills. The book covers almost all core elements of the language and slowly adds more layers to the lessons. I feel this book is one of the best ways to learn the language outside of a classroom.  <p>
+		<p> This book is a great reference for any programmer. It gives you everything you need to get started on some real projects. </p>
+		<img src ="book.jpg" alt ="JavaScript and JQuery: Interactive Front-End Web Development" title="JavaScript and JQuery: Interactive Front-End Web Development Book" />
           </div><!-- /.blog-post -->
         </div><!-- /.blog-main -->
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
           <div class="sidebar-module sidebar-module-inset">
             <h4>About</h4>
-            <p>This blog is intended to serve as a reference for other developers that come across similar problems I have already encountered.</p>
+            <p>I'm Andrew and this is my development blog. I talk about all things development from code tutorials, book reviews, and emerging technologies. I love making new professional acquaintances, feel free to reach out to me if you want to talk technology, programming, or baseball.  </p>
           </div>
           <div class="sidebar-module">
             <h4>Archives</h4>
             <ol class="list-unstyled">
-              <li><a href="./BlogPost1.html">SSRS Selecting Last Week</a></li>
-              <li><a href="./BlogPost2.html">Clearing Textboxes with JS</a></li>
-			  <li><a href="./BlogPost3.html">DevExpress Multiple Columns</a></li>
-              <!-- <li><a href="#">Blog Post 3</a></li>
-              <li><a href="#">Blog Post 4</a></li>
+              <li><a href="blogPost1.html">SSRS Selecting Last Week</a></li>
+              <li><a href="blogPost2.html">Clearing Textboxes with JS</a></li>
+               <li><a href="blogPost3.html">Book Review: JavaScript and JQuery</a></li>
+              <!--<li><a href="#">Blog Post 4</a></li>
               <li><a href="#">Blog Post 5</a></li>
               <li><a href="#">Blog Post 6</a></li> -->
             </ol>
@@ -109,7 +78,6 @@ Dim isFinished As Boolean = e.GetListSourceFieldValue("isFinished")</code></pre>
             </ol>
           </div>
         </div><!-- /.blog-sidebar -->
-
       </div><!-- /.row -->
 
     </div><!-- /.container -->
