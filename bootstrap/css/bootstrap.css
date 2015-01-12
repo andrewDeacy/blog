@@ -881,7 +881,6 @@ th {
 * {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
-          box-sizing: border-box;
 }
 *:before,
 *:after {
@@ -962,7 +961,6 @@ img {
 hr {
   margin-top: 20px;
   margin-bottom: 20px;
-  border: 0;
   border-top: 1px solid #eee;
 }
 .sr-only {

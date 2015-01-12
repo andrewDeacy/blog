@@ -8,13 +8,13 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Andrew Deacy's Blog test test 123</title>
-
-    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="blog.css" rel="stylesheet">
-    <script src="./bootstrap/js/ie-emulation-modes-warning.js"></script> 
-	<title > Andrew Deacy</title>
+    <title>Andrew Deacy's Development Blog</title>
 	<link rel="stylesheet" type="text/css" href="drew.css" />
+    <link href="./bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="blog.css" rel="stylesheet">
+	<link href="drew.css" rel="stylesheet">
+    <script src="./bootstrap/js/ie-emulation-modes-warning.js"></script> 
+	
 </head>
 <img src ="./header.png" alt ="andrewdeacy.net" title="Andrew Deacy.net" />
 </br>
@@ -33,8 +33,8 @@
     <div class="container">
 
       <div class="blog-header">
-        <h1 class="blog-title">Development Blog</h1>
-        <p class="lead blog-description">Created by a developer, for developers</p>
+        <a href="blog.html"><h1 class="blog-title">Development Blog</h1></a>
+        <p class="lead blog-description">Created by a developer, for developers.</p>
       </div>
 
       <div class="row">
@@ -43,7 +43,7 @@
 
           <div class="blog-post">
 			<!-- blog post content -->
-			<a href="./blogpost1.html"><h2 class="blog-post-title" >SSRS: Selecting Last Week</h2></a>
+			<a href="blogPost1.html"><h2 class="blog-post-title" >SSRS: Selecting Last Week</h2></a>
             <p class="blog-post-meta">November 24, 2014 by <a href="http://www.andrewdeacy.net">Andrew</a></p>
 
             <p>Selecting the previous week from Sunday to Saturday can be deceivingly difficult in SSRS's hybrid VB/SQL syntax, I'll outline how it's done in this post. </p>
@@ -52,14 +52,14 @@
             </br>
 			<img src='./cal.png' title="Sunday to Saturday SSRS" alt='SSRS Sunday to Saturday Parameter' width=500px class="img-rounded" style="padding-left:25px"/>
 			</br>
-			<hr>
-			<a href="./blogPost1.html"><p>Click here to continue...</p></a>
 			
+			<b><a href="blogPost1.html"><p>Click here to continue...</p></a></b>
+			<hr>
             
           </div><!-- /.blog-post -->
 
           <div class="blog-post">
-            <h2 class="blog-post-title">Clearing Textboxes with JS</h2>
+            <a href="blogPost2.html"><h2 class="blog-post-title">Clearing Textboxes with JS</h2></a>
             <p class="blog-post-meta">December 11, 2014 by <a href="http://www.andrewdeacy.net">Andrew</a></p>
 
            <p>Clearing textboxes that use JQuery datepickers without posting back in ASP.net requires the use of some simple JavaScript client side scripting. </p>
@@ -74,9 +74,10 @@
     var DateTo = document.getElementById("<%=txtDueDateTo.ClientID%>"), 
         DateFrom = document.getElementById("<%=txtDueDateFrom.ClientID%>"),
         cbNullDate = document.getElementById("<%=chkNullDates.ClientID%>");</code></pre>
-			<hr>
-			<a href="./BlogPost2.html"><p>Click here to continue...</p></a>
-          </div><!-- /.blog-post -->
+			
+			<b><a href="blogPost2.html"><p>Click here to continue...</p></a></b>
+          <hr>
+		  </div><!-- /.blog-post -->
 
           <!-- /.blog-post -->
 
@@ -92,13 +93,13 @@
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
           <div class="sidebar-module sidebar-module-inset">
             <h4>About</h4>
-            <p>This blog is intended to serve as a reference for other developers that come across similar problems I have already encountered.</p>
+            <p>I'm Andrew and this is my development blog. I talk about all things development from code tutorials, book reviews, and emerging technologies. I love making new professional acquaintances, feel free to reach out to me if you want to talk technology, programming, or baseball.  </p>
           </div>
           <div class="sidebar-module">
             <h4>Archives</h4>
             <ol class="list-unstyled">
-              <li><a href="./blogPost1.html">SSRS Selecting Last Week</a></li>
-              <li><a href="./BlogPost2.html">Clearing Textboxes with JS</a></li>
+              <li><a href="blogPost1.html">SSRS Selecting Last Week</a></li>
+              <li><a href="blogPost2.html">Clearing Textboxes with JS</a></li>
 <!--               <li><a href="#">Blog Post 3</a></li>
               <li><a href="#">Blog Post 4</a></li>
               <li><a href="#">Blog Post 5</a></li>
