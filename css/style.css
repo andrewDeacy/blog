@@ -3,6 +3,10 @@
 /* ------------------
  *   MAIN MENU BAR
  * ----------------- */
+@font-face {
+	font-family: "Dolphin-Sans";
+	src: url(../fonts/Dolphin-Sans.ttf) format("truetype");
+}
 
 hr {
     display: block;
@@ -323,72 +327,6 @@ a.aboutlink:hover{
     text-decoration: none !important;
 }
 
-.timeline{
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 25px;
-    padding-top: 29px;
-}
-
-.timeline-line{
-    border-left: 6px solid #d0d2d3;
-    padding-left: -10px;
-}
-
-.timeline-circle {
-    color: #000;
-    font-family: "Open Sans", sans-serif;
-    font-size: 15px;
-    line-height: 1.5em;
-    margin-bottom: 10px;
-    position: relative;
-}
-
-.timeline-circle:before {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 3px solid #d0d2d3;
-    background: #3d8eb9;
-    left: -53px;
-    top: 4px;
-}
-
-.timeline-info {
-    position: relative;
-    min-height: 100%;
-    color: #000;
-    font-family: "Open Sans", sans-serif;
-    font-size: 15px;
-    padding: 20px 20px 20px 40px;
-}
-
-.timeline-logo{
-    padding-bottom: 8px;
-    margin-bottom: 4px;
-}
-
-.timeline-icon{
-    display: inline-block;
-    height: 1.1em;
-    padding-right: 5px;
-    position: relative;
-    top: -2px;
-}
-
-.nest{
-    height: 59px;
-    margin-left: 1px;
-}
-
-.blackberry{
-    height: 43px;
-    margin-left: 1px;
-}
-
 .td{
     height: 43px;
     margin-left: 2px;
@@ -464,7 +402,7 @@ a.aboutlink:hover{
     opacity: 1.0;
 }
 
-.twitter, .instagram, .email, .linkedin, .github {
+.twitter, .email, .linkedin, .github {
     background-size: auto 50px;
     background-repeat: no-repeat;
     background-position: center;
@@ -484,10 +422,6 @@ a.aboutlink:hover{
 
 .twitter {
     background-image: url(../images/twitter.png);
-}
-
-.instagram {
-    background-image: url(../images/instagram.png);
 }
 
 .email {
@@ -546,14 +480,14 @@ a.aboutlink:hover{
         font-size: 32px;
     }
 
-    .twitter, .instagram, .email, .linkedin, .github{
+    .twitter, .email, .linkedin, .github{
          background-size: auto 35px;
          width: 61px;
          height: 42px;
          padding-left: 8px;
     }
 
-    .twitter:hover, .instagram:hover, .email:hover, .linkedin:hover, .github:hover{
+    .twitter:hover, .email:hover, .linkedin:hover, .github:hover{
          background-size: auto 42px;
     }
 
@@ -571,11 +505,3 @@ a.aboutlink:hover{
         font-size: 8.5px;
     }
 }
-
-
-@font-face {
-	font-family: "Dolphin-Sans";
-	src: url(../fonts/Dolphin-Sans.ttf) format("truetype");
-}
-
-
