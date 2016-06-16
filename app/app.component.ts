@@ -14,14 +14,10 @@ import {QueueComponent} from './queue.component'
     // So this is what gets loaded into the HTML when the tag gets embedded:
     // In our use this will be a cshtml file rather than just typed out template.. 
     // ex: templateUrl: 'index.html'
-    template: ` <h1>{{title}}</h1><h2>{{roleType}}:</h2> <p>{{description}}</p>
-    <ebinder-form></ebinder-form>
-    `,
+    templateUrl: `../header.html`,
     directives: [FormComponent] // Now telling the App.Component to load another directive...which is our from component
 })
 
 export class AppComponent {
-    public title = 'Manage Roles';
-    public roleType = 'Manager';
-    public description = 'Has location specific rights and day to day management of the account.';
+
 }
