@@ -4,8 +4,8 @@
  *   MAIN MENU BAR
  * ----------------- */
 @font-face {
-	font-family: "Dolphin-Sans";
-	src: url(../fonts/Dolphin-Sans.ttf) format("truetype");
+	font-family: 'DolphinSans';
+	src: url('../Dolphin-Sans.ttf') format('truetype');
 }
 
 hr {
@@ -32,7 +32,14 @@ hr {
 }
 
 .navbarHeader {
-	font-family: "Dolphin-Sans", Verdana, Tahoma;
+    display: block;
+	font-family: 'DolphinSans', sans-serif;
+    /*vertical-align: text-top;*/
+    font-weight: 400;
+    font-size: 30px;
+    display: inline;
+    /*padding: 1.125%;*/
+    padding-bottom: 301px;
 }
 
 ul.nav {
@@ -47,6 +54,7 @@ ul.nav {
     padding: 1.125%;
     padding-top: 15px;
     padding-bottom: 15px;
+    font-family: 'Oswald', Helvetica, Arial, Lucida, sans-serif
 }
 
 .nav li.nav-li:hover{
@@ -213,8 +221,7 @@ b {
 
 .aboutheader{
     color: #FFFFFF;
-    font-family: "Open Sans", sans-serif;
-    text-align: center;
+    font-family: 'Oswald', sans-serif;    text-align: center;
     font-weight: 300;
     padding-bottom: 7px;
 }

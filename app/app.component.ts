@@ -1,6 +1,5 @@
-﻿import {Component} from 'angular2/core';
-import {FormComponent} from './form.component'
-import {QueueComponent} from './queue.component'
+﻿import {Component} from '@angular2/core';
+import {BlogHeaderComponent} from './BlogHeader.component';
 
 // App.Component is the root component of an Angular 2 project
 // Components are essentially directives with views attached to them, an Angular 2 application is composed of several components working together..
@@ -15,7 +14,7 @@ import {QueueComponent} from './queue.component'
     // In our use this will be a cshtml file rather than just typed out template.. 
     // ex: templateUrl: 'index.html'
     templateUrl: `../header.html`,
-    directives: [FormComponent] // Now telling the App.Component to load another directive...which is our from component
+    directives: [BlogHeaderComponent] // Now telling the App.Component to load another directive...which is our from component
 })
 
 export class AppComponent {
