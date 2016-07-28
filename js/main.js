@@ -26,7 +26,6 @@ function hoverOff() {
 function menuOn() {
 	if (menuFlag === false){
 		$("#navbar").animate({height: '+=280px'},750);
-		$(this).attr("src", "images/close.png");
 		menuFlag = true;
 	} else if (menuFlag === true){
 		$("#navbar").animate({height: '-=280px'},750);
